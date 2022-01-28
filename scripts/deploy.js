@@ -13,6 +13,11 @@ async function main() {
   const reentrance = await Reentrance.deploy();
   console.log("Reentrance address: ", await reentrance.address);
   console.log("Account balance after Reentrance deploy: ", (await deployer.getBalance()).toString());
+
+  const ReentrancyAttack = await ethers.getContractFactory("ReentrancyAttack");
+  const reentrancyAttack = await ReentrancyAttack.deploy();
+  console.log("ReentrancyAttack address: ", await reentrancyAttack.address);
+  console.log("Account balance after ReentrancyAttack deploy: ", (await deployer.getBalance()).toString());
 }
 
 main()
